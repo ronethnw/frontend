@@ -1,19 +1,31 @@
 export interface Event {
-    id: string;
-    name: string;
-    date: string;
-    time: string;
-    price: number;
-    availableTickets: number;
-    location: string;
-    category: string;
-  }
-  
-  export interface TicketDetails {
-    id: string;
-    customerName: string;
-    email: string;
-    paymentStatus: "paid" | "pending" | "failed";
-    purchaseDate: string;
-    eventName: string;
-  }
+  id: string;
+  name: string;
+  date: string;
+  time: string;
+  price: number;
+  availableTickets: number;
+  location: string;
+  category: string;
+  vendorId: string;
+}
+
+export interface Ticket {
+  id: string;
+  eventId: string;
+  customerName: string;
+  customerEmail: string;
+  quantity: number;
+  purchaseDate: string;
+  status: 'pending' | 'paid' | 'failed';
+}
+
+export interface AuthResponse {
+  message: string;
+  token: string;
+}
+
+export interface ApiError {
+  message: string;
+  errors?: Record<string, string[]>;
+}
